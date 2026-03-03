@@ -17,3 +17,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Gradle local cache and generated files
+.gradle/
+
+# IntelliJ / JetBrains IDE local workspace
+.idea/workspace.xml
