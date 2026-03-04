@@ -5,10 +5,9 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_dashboard">
 
-    <fragment
+    <composable
         android:id="@+id/navigation_dashboard"
-        android:name="com.podium.technicalchallenge.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.podium.technicalchallenge.dashboard.DashboardDestinationKt$DashboardDestination"
+        android:label="@string/title_dashboard" />
 
 </navigation>
