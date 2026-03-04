@@ -1,4 +1,4 @@
-package com.podium.technicalchallenge
+package com.podium.technicalchallenge.common
 
 import okhttp3.Interceptor
 import okhttp3.Response
