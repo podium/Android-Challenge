@@ -30,7 +30,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PodiumTechinalChallenge">
+        android:theme="@style/Theme.PodiumTechnicalChallenge">
         <activity
             android:name="com.podium.technicalchallenge.MainActivity"
             android:exported="true"
