@@ -1,8 +1,6 @@
 package com.podium.technicalchallenge.common
 
 import com.google.gson.Gson
-import com.podium.technicalchallenge.entity.MovieEntity
-import com.podium.technicalchallenge.entity.MovieResponse
 import com.podium.technicalchallenge.common.network.queries.Queries
 import com.podium.technicalchallenge.common.network.retrofit.GraphQLService
 import kotlinx.coroutines.Dispatchers
