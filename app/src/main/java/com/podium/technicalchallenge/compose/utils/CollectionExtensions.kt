@@ -11,6 +11,7 @@ val List<MovieEntity>.separateByGenre: Map<String, List<MovieEntity>>
                 list.add(movieEntity).run {
                     distinctBy { it.id }
                 }
+                map[genre] = list
             }
         }
         return map
