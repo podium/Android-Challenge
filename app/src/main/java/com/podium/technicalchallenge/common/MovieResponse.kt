@@ -1,7 +1,6 @@
 package com.podium.technicalchallenge.common
 
-import com.podium.technicalchallenge.compose.utils.dateFromAPIFormat
-import com.podium.technicalchallenge.compose.utils.displayFormat
+import com.podium.technicalchallenge.compose.utils.*
 import java.util.Date
 
 data class MovieResponse(
@@ -17,6 +16,10 @@ data class MovieEntity(
     val popularity: Float,
     val posterPath: String,
     val title: String,
+    val overview: String,
+    val voteAverage: Float,
+    val voteCount: Int,
+    val genres: List<String>,
     val releaseDate: String
 ) {
     val releaseDateObj: Date?

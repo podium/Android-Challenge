@@ -9,6 +9,10 @@ object Queries {
     popularity
     posterPath
     title
+    overview
+    voteAverage
+    voteCount
+    genres
     releaseDate
   }
 }
