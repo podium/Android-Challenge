@@ -18,10 +18,14 @@
 .cxx
 local.properties
 
+temp
+
 **/.claude/settings.local.json
 **/.claude.json
 **/.claude.json.backup.*
 **/.security_warnings_*.json
+
+.nwave/des/logs
 
 CLAUDE.local.md
 

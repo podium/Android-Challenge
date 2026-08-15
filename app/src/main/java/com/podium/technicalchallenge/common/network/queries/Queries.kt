@@ -5,6 +5,9 @@ object Queries {
 """
     query GetMoviesQuery {
   movies {
+    id
+    popularity
+    posterPath
     title
     releaseDate
   }
