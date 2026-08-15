@@ -16,11 +16,14 @@ import com.podium.technicalchallenge.common.MovieEntity
 @Composable
 fun MovieListItem(
     modifier: Modifier = Modifier,
-    movie: MovieEntity
+    movie: MovieEntity,
+    onMovieClicked: (MovieEntity) -> Unit
 ) {
     Card(
         modifier = modifier,
-        onClick = {}
+        onClick = {
+            onMovieClicked(movie)
+        }
     ) {
         Column(
             modifier = Modifier.padding(8.dp),
