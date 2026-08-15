@@ -33,7 +33,6 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
         compose = true
         buildConfig = true
     }
@@ -54,7 +53,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.fragment.compose)
     implementation(libs.androidx.viewpager2)
 
     // Compose
@@ -65,9 +63,6 @@ dependencies {
     implementation(libs.compose.material)
 
     // Navigation
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.fragment.compose)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.compose)
 
     // Networking

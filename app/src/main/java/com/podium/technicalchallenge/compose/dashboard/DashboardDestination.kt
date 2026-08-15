@@ -1,6 +1,5 @@
-package com.podium.technicalchallenge.dashboard
+package com.podium.technicalchallenge.compose.dashboard
 
-import androidx.annotation.Keep
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
@@ -12,7 +11,6 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.podium.technicalchallenge.common.AppTheme
 
 
-@Keep
 @Composable
 fun DashboardDestination(){
     val viewModel = hiltViewModel<DashboardViewModel>()
