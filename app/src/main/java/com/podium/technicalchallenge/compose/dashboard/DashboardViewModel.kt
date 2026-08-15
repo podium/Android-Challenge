@@ -1,4 +1,4 @@
-package com.podium.technicalchallenge.dashboard
+package com.podium.technicalchallenge.compose.dashboard
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
