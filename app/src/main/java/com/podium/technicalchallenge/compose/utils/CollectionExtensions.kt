@@ -7,10 +7,10 @@ val List<MovieEntity>.separateByGenre: Map<String, List<MovieEntity>>
         val map = mutableMapOf<String, MutableList<MovieEntity>>()
         this.forEach { movieEntity ->
             movieEntity.genres.forEach { genre ->
-                if (map[genre] == null) {
-                    map[genre] = mutableListOf()
+                val list = map[genre] ?: mutableListOf()
+                list.add(movieEntity).run {
+                    distinctBy { it.id }
                 }
-                map[genre]?.add(movieEntity)
             }
         }
         return map

@@ -1,16 +1,15 @@
 package com.podium.technicalchallenge.compose.dashboard
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.podium.technicalchallenge.common.MovieEntity
-import com.podium.technicalchallenge.common.MovieRepository
+import androidx.lifecycle.*
+import com.podium.technicalchallenge.common.*
 import com.podium.technicalchallenge.compose.utils.separateByGenre
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.collections.flatMap
+import kotlin.collections.sortedBy
 
 enum class Sort {
     Title, Rating, Genre
@@ -20,31 +19,36 @@ enum class Sort {
 class DashboardViewModel @Inject constructor(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
-    private val _movies = MutableStateFlow<List<MovieEntity>>(listOf())
-    val movies: StateFlow<List<MovieEntity>> = _movies
+    var movies: List<MovieEntity> = listOf()
 
-    private val _moviesByGenre = MutableStateFlow<Map<String, List<MovieEntity>>>(mapOf())
-    val moviesByGenre: StateFlow<Map<String, List<MovieEntity>>> = _moviesByGenre
+    private val _moviesMap = MutableStateFlow<Map<String, List<MovieEntity>>>(mapOf())
+    val moviesMap: StateFlow<Map<String, List<MovieEntity>>> = _moviesMap
 
     fun getMovies() {
         viewModelScope.launch {
-            val movies = movieRepository.getMovies()
+            movies = movieRepository.getMovies()
             Log.d("DashboardViewModel", "movies=$movies")
-            _movies.value = movies
+            _moviesMap.value = mapOf(
+                "" to movies
+            )
         }
     }
 
     fun sortBy(sort: Sort) {
         when (sort) {
             Sort.Title -> {
-                _movies.value = movies.value.sortedBy { it.title }
+                _moviesMap.value = mapOf(
+                    "" to movies.sortedBy { it.title }
+                )
             }
             Sort.Rating -> {
-                _movies.value = movies.value.sortedByDescending { it.voteAverage }
+                _moviesMap.value = mapOf(
+                    "" to movies.sortedByDescending { it.voteAverage }
+                )
             }
 
             Sort.Genre -> {
-                _moviesByGenre.value = movies.value.separateByGenre
+                _moviesMap.value = movies.separateByGenre
             }
         }
     }

@@ -25,7 +25,7 @@ fun DashboardDestination(
     AppTheme {
         DashboardScreen(
             modifier = modifier,
-            movies = viewModel.movies.collectAsState().value,
+            movies = viewModel.moviesMap.collectAsState().value,
             onMovieClicked = onMovieClicked,
             onSortBy = { sort ->
                 viewModel.sortBy(sort)
@@ -37,7 +37,7 @@ fun DashboardDestination(
 @Composable
 fun DashboardScreen(
     modifier: Modifier = Modifier,
-    movies: List<MovieEntity>,
+    movies: Map<String, List<MovieEntity>>,
     onMovieClicked: (MovieEntity) -> Unit,
     onSortBy: (Sort) -> Unit
 ) {
@@ -84,14 +84,39 @@ fun DashboardScreen(
         }
 
         LazyColumn {
-            items(movies) { movie ->
-                MovieListItem(
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
-                    movie = movie,
-                    onMovieClicked = onMovieClicked
-                )
+            if (movies.values.size <= 1) {
+                items(movies.values.firstOrNull()?.toList() ?: listOf()) { movie ->
+                    MovieListItem(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .fillMaxWidth(),
+                        movie = movie,
+                        onMovieClicked = onMovieClicked
+                    )
+                }
+            } else {
+                items(movies.keys.toList()) { genre ->
+                    val movieList = movies[genre]
+
+                    if (movieList?.isNotEmpty() == true) {
+                        Text(
+                            text = genre,
+                            style = MaterialTheme.typography.h5
+                        )
+
+                        Column {
+                            movieList.forEach { movie ->
+                                MovieListItem(
+                                    modifier = Modifier
+                                        .padding(8.dp)
+                                        .fillMaxWidth(),
+                                    movie = movie,
+                                    onMovieClicked = onMovieClicked
+                                )
+                            }
+                        }
+                    }
+                }
             }
         }
     }
