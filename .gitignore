@@ -18,6 +18,13 @@
 .cxx
 local.properties
 
+**/.claude/settings.local.json
+**/.claude.json
+**/.claude.json.backup.*
+**/.security_warnings_*.json
+
+CLAUDE.local.md
+
 # Gradle local cache and generated files
 .gradle/
 
