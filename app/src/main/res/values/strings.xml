@@ -3,7 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="average_rating">Average Rating</string>
+    <string name="average_rating">Average Rating:</string>
     <string name="vote_description">%1$s (%2$s Votes)</string>
     <string name="genres">Genres:</string>
+    <string name="sort_by">Sort By</string>
+    <string name="title">Title</string>
+    <string name="rating">Rating</string>
 </resources>
