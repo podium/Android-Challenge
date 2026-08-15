@@ -74,6 +74,10 @@ dependencies {
     implementation(libs.retrofit.converter.scalars)
     implementation(libs.gson)
 
+    // Images
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
     // Hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

@@ -13,6 +13,9 @@ data class Movies(
 )
 
 data class MovieEntity(
+    val id: Int,
+    val popularity: Float,
+    val posterPath: String,
     val title: String,
     val releaseDate: String
 ) {

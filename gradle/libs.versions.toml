@@ -12,6 +12,7 @@ coroutines = "1.10.2"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
 gson = "2.13.2"
+coil = "3.3.0"
 hilt = "2.58"
 hiltAndroidx = "1.3.0"
 ksp = "2.3.4"
@@ -49,6 +50,10 @@ okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-i
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofit" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# Images
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 # Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
